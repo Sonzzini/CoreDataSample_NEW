@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CoreDataSample_NEWApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+	
+	@StateObject var contentViewModel: ContentViewModel = ContentViewModel(dataManager: CoreDataManager(), logsManager: LogsViewModel())
+	
+	var body: some Scene {
+		WindowGroup {
+			ContentView(contentViewModel)
+		}
+	}
 }
